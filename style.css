@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+    isolation: isolate;
+}
+
+
+body {
+    background-color: #f0fcf6;
+    font-family: 'Lato', sans-serif;
+    /* height: 100dvh; */
+}
+
+
+main {
+    height: 100vh;
+    width: 90%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.first-card {
+    margin-inline: auto;
+    width: min(50%, 500px);
+}
+
+.first-card>img {
+    width: 77.33px;
+    height: 77px;
+}
+
+.first-card>h1 {
+    margin-block: 20px;
+    color: #000B0A;
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 700;
+}
+
+.first-card>p {
+    color: #737373;
+    font-size: 1rem;
+    line-height: 25px;
+    font-weight: 400;
+}
+
+
+.second-card {
+    width: 50%;
+}
+
+.second-card>form {
+    border-radius: 2px;
+    box-shadow: 0px 4px 50px 0px #0408131A;
+    width: 65%;
+    max-width: fit-content;
+    margin-inline: auto; 
+    height: 530px;
+    padding: 20px;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-template-areas: 
+        "fName fName fName fName fName fName lName lName lName lName lName lName"
+        "gender gender gender gender gender gender dob dob dob dob dob dob"
+        "wieght wieght wieght wieght wieght wieght height height height height height height" 
+        "activity activity activity activity activity activity activity activity activity activity activity activity"
+        "password password password password password password password password password password password password"
+        "button button button button button button button button button button button button"
+        "p p p p p p p p p p p p"
+    ;
+}
+
+form > .first-name-input {
+    grid-area: fName;
+}
+
+form > .last-name-input {
+    grid-area: lName;
+    
+}
+
+form > #gender-input {
+    grid-area: gender;
+}
+
+form > .dob-input {
+    grid-area: dob;
+}
+
+form > .weight-input {
+    grid-area: wieght;
+}
+
+form >.height-input {
+    grid-area: height;
+}
+
+form > .activity-input {
+    grid-area: activity;
+}
+
+form >.password-input {
+    grid-area: password;
+}
+
+form > button {
+    grid-area: button;
+    background-color: #2EC4B6;
+    height: 35px; 
+    color: white;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form >  p {
+    grid-area: p;
+    font-size: 11px;
+    margin-inline: auto;
+    font-weight: bold;
+}
+
+a {
+    color: #2EC4B6;
+    font-weight: bold;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color:#011C34;
+    display: block;
+    margin-block-end: 5px;
+}
+
+select {
+    display: block;
+    border: 1px solid rgb(204, 202, 202);
+}
+
+option {
+   color: rgb(94, 93, 93);
+}
+
+input {
+    border: 1px solid rgb(204, 202, 202);
+    display: block;
+}
+ 
+
+input:focus {
+    outline: 2px solid #2EC4B6;
+    display: block;
+}
+ 
+
+select, input:not(.activity-input>select,
+.password-input>input) {
+    width:  90%; 
+    height: 30px;
+}
+
+.activity-input > select, .password-input>input {
+    width:  100%;
+    height: 30px;
+}
+
+#short-text {
+    display: none;
+}
+
+/* Media Queries */
+
+@media (max-width: 1124px) 
+{  
+    
+    /* body { 
+        width: 600px; 
+        min-width: 100%;  
+    } */
+
+    main { 
+        height: 100%; 
+        min-width: 100%;
+        flex-direction: column;
+        width: fit-content;
+    }
+    
+    .first-card { 
+        width: 90%;
+        margin-block-end: 30px;
+    }
+
+    #long-text {
+        display: none;
+    }
+   
+    #short-text {
+        color: #737373;
+            font-size: 1rem;
+            line-height: 25px;
+            font-weight: 400;
+            display: block;
+        }
+    .first-card > img { 
+        margin-top: 20px;
+    }
+   
+    .second-card {   
+        width: 90%;
+    }
+
+    .second-card> form {
+        min-width: 100%;
+        width: 100%;
+        min-height: 700px;
+            display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                grid-template-rows: 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px;
+                grid-template-areas:
+                    "fName fName fName fName fName fName fName fName fName fName fName fName"
+                    "lName lName lName lName lName lName lName lName lName lName lName lName"
+                    "gender gender gender gender gender gender gender gender gender gender gender gender"
+                    "dob dob dob dob dob dob dob dob dob dob dob dob"
+                    "wieght wieght wieght wieght wieght wieght wieght wieght wieght wieght wieght wieght"
+                    "height height height height height height height height height height height height"
+                    "activity activity activity activity activity activity activity activity activity activity activity activity"
+                    "password password password password password password password password password password password password"
+                    "button button button button button button button button button button button button"
+                    "p p p p p p p p p p p p";
+    }
+
+        form>.first-name-input {
+            grid-area: fName;
+        }
+    
+        form>.last-name-input {
+            grid-area: lName; 
+        }
+    
+        form>#gender-input {
+            grid-area: gender;
+        }
+    
+        form>.dob-input {
+            grid-area: dob;
+        }
+    
+        form>.weight-input {
+            grid-area: wieght;
+        }
+    
+        form>.height-input {
+            grid-area: height;
+        }
+    
+        form>.activity-input {
+            grid-area: activity;
+        }
+    
+        form>.password-input {
+            grid-area: password;
+        }
+    
+        form>button {
+            grid-area: button;
+            background-color: #2EC4B6;
+            height: 35px;
+            color: white;
+            border-radius: 2px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            /* margin-block-start: 20px; */
+        }
+    
+        form>p {
+            grid-area: p;
+            font-size: 11px;
+            margin-inline: auto;
+            font-weight: bold;
+        }
+
+        input, select  {
+            min-width: 100%;
+        }
+
+        .first-card > h1 {
+            font-size: 30px;
+        }
+    }
